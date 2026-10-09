@@ -171,6 +171,9 @@ form.addEventListener("change",()=>{form.dataset.touched="1";formError.classList
 function esc(s){return String(s??"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")}
 function fmtDate(s){if(!s)return "À compléter";const p=s.split("-");return p.length===3?p[2]+"/"+p[1]+"/"+p[0]:s}
 function wrapPdf(doc,text,x,y,width,lineH=5.2){const lines=doc.splitTextToSize(String(text||"—"),width);if(y+lines.length*lineH>278){doc.addPage();y=18}doc.text(lines,x,y);return y+lines.length*lineH}
+const infotelcomSignatureImage=new Image();
+infotelcomSignatureImage.src=new URL("assets/signature-infotelcom.jpeg",document.baseURI).href;
+function loadInfotelcomSignature(){return new Promise((resolve,reject)=>{if(infotelcomSignatureImage.complete&&infotelcomSignatureImage.naturalWidth){resolve();return}infotelcomSignatureImage.onload=()=>resolve();infotelcomSignatureImage.onerror=()=>reject(new Error("La signature INFOTELCOM (assets/signature-infotelcom.jpeg) n’a pas pu être chargée."));});}
 function makeProtocol(){
  const {jsPDF}=window.jspdf;const doc=new jsPDF({unit:"mm",format:"a4"});
  const W=210, left=17,right=17,width=W-left-right;let y=18;
@@ -204,7 +207,7 @@ function makeProtocol(){
  title("Article 14 — Responsabilité");para("Chaque partie est responsable des actions menées sous sa direction et des dommages qu’elle cause à l’autre partie ou à des tiers dans le cadre de la collaboration.");
  title("Article 15 — Droit applicable et règlement des différends");para("Le présent protocole est soumis au droit de la République du Congo. Les parties s’efforcent de régler à l’amiable tout différend dans un délai de "+val("delaiAmiable")+" jours. À défaut d’accord, le litige est porté devant les juridictions compétentes de Brazzaville.");
  title("Article 16 — Dispositions finales");para("Le présent protocole constitue l’intégralité de l’accord entre les parties sur son objet. Toute modification fait l’objet d’un avenant écrit et signé par les deux parties. Il est établi en deux exemplaires originaux, un pour chaque partie.");
- title("Signatures");kv("Fait à",val("lieuSignature"));kv("Date prévue",fmtDate(val("dateSignature")));checkPage();y+=8;doc.setDrawColor(140,160,178);doc.roundedRect(left,y,width/2-4,46,2,2);doc.roundedRect(left+width/2+4,y,width/2-4,46,2,2);doc.setFont("helvetica","bold");doc.setFontSize(9);doc.setTextColor(...navy);doc.text("Pour INFOTELCOM",left+4,y+7);doc.text("Pour le Partenaire",left+width/2+8,y+7);doc.setFont("helvetica","normal");doc.setFontSize(8);doc.text("Nom : "+val("nomIT"),left+4,y+14);doc.text("Fonction : "+val("fonctionIT"),left+4,y+20);doc.text("Date : "+fmtDate(val("dateSignature")),left+4,y+26);doc.text("Signature et cachet :",left+4,y+34);doc.text("Nom : "+val("representant"),left+width/2+8,y+14);doc.text("Fonction : "+val("fonctionRepresentant"),left+width/2+8,y+20);doc.text("Date : "+fmtDate(val("dateSignPartenaire")||val("dateSignature")),left+width/2+8,y+26);doc.text("Signature et cachet :",left+width/2+8,y+34);const savedSig=localStorage.getItem("infotelcom_partner_signature");if(savedSig){try{doc.addImage(savedSig,"PNG",left+width/2+8,y+35,width/2-18,9)}catch(e){console.warn("Signature partenaire non intégrée",e)}}
+ title("Signatures");kv("Fait à",val("lieuSignature"));kv("Date prévue",fmtDate(val("dateSignature")));checkPage();y+=8;doc.setDrawColor(140,160,178);doc.roundedRect(left,y,width/2-4,46,2,2);doc.roundedRect(left+width/2+4,y,width/2-4,46,2,2);doc.setFont("helvetica","bold");doc.setFontSize(9);doc.setTextColor(...navy);doc.text("Pour INFOTELCOM",left+4,y+7);doc.text("Pour le Partenaire",left+width/2+8,y+7);doc.setFont("helvetica","normal");doc.setFontSize(8);doc.text("Nom : "+val("nomIT"),left+4,y+14);doc.text("Fonction : "+val("fonctionIT"),left+4,y+20);doc.text("Date : "+fmtDate(val("dateSignature")),left+4,y+26);doc.text("Signature et cachet :",left+4,y+34);try{doc.addImage(infotelcomSignatureImage,"JPEG",left+4,y+35,width/2-18,9,undefined,"FAST")}catch(e){console.warn("Signature INFOTELCOM non intégrée",e)}doc.text("Nom : "+val("representant"),left+width/2+8,y+14);doc.text("Fonction : "+val("fonctionRepresentant"),left+width/2+8,y+20);doc.text("Date : "+fmtDate(val("dateSignPartenaire")||val("dateSignature")),left+width/2+8,y+26);doc.text("Signature et cachet :",left+width/2+8,y+34);const savedSig=localStorage.getItem("infotelcom_partner_signature");if(savedSig){try{doc.addImage(savedSig,"PNG",left+width/2+8,y+35,width/2-18,9)}catch(e){console.warn("Signature partenaire non intégrée",e)}}
  footer();return doc;
 }
 function makePresentation(){
@@ -242,6 +245,8 @@ btn.addEventListener("click",async()=>{
   if(!window.jspdf||!window.JSZip)throw new Error("Les composants de génération n’ont pas pu être chargés. Vérifiez votre connexion puis réessayez.");
   const zip=new JSZip();
   await new Promise(resolve=>requestAnimationFrame(()=>setTimeout(resolve,0)));
+  btn.textContent="Chargement de la signature officielle…";status.textContent="Chargement de la signature INFOTELCOM.";
+  await loadInfotelcomSignature();
   btn.textContent="Mise en page du protocole…";status.textContent="Préparation du protocole PDF.";
   const protocol=makeProtocol();
   await new Promise(resolve=>requestAnimationFrame(()=>setTimeout(resolve,0)));
