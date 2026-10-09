@@ -176,9 +176,9 @@ function makeProtocol(){
  const W=210, left=17,right=17,width=W-left-right;let y=18;
  const navy=[5,39,67],cyan=[0,145,190],grey=[72,88,105];
  function header(){doc.setFillColor(...navy);doc.rect(0,0,W,11,"F");doc.setFont("helvetica","bold");doc.setFontSize(8);doc.setTextColor(255,255,255);doc.text("INFOTELCOM  ·  PROTOCOLE D’ACCORD",left,7.2);doc.setTextColor(...grey);doc.setFontSize(8);doc.text("Réf. "+val("reference"),W-right,17,{align:"right"})}
- function title(t){if(y>263){doc.addPage();y=18;header()}doc.setFillColor(229,246,251);doc.roundedRect(left,y-5,width,9,1.5,1.5,"F");doc.setTextColor(...navy);doc.setFont("helvetica","bold");doc.setFontSize(10);doc.text(t,left+2,y+0.7);y+=9}
- function para(t){doc.setFont("helvetica","normal");doc.setFontSize(8.6);doc.setTextColor(38,51,66);y=wrapPdf(doc,t,left,y,width,4.5)+2}
- function kv(label,value){doc.setFont("helvetica","bold");doc.setFontSize(8.5);doc.setTextColor(...navy);y=wrapPdf(doc,label+": ",left,y,width,4.5);doc.setFont("helvetica","normal");doc.setTextColor(38,51,66);y=wrapPdf(doc,value||"—",left+3,y,width-3,4.5)+1}
+ function title(t){if(y>260){doc.addPage();y=22;header()}doc.setFillColor(5,39,67);doc.roundedRect(left,y-5,width,10,2,2,"F");doc.setFillColor(...cyan);doc.roundedRect(left,y-5,2,10,1,1,"F");doc.setTextColor(255,255,255);doc.setFont("helvetica","bold");doc.setFontSize(9.5);doc.text(t,left+6,y+1);y+=13}
+ function para(t){doc.setFont("helvetica","normal");doc.setFontSize(9.5);doc.setTextColor(38,51,66);const lines=doc.splitTextToSize(String(t||"—"),width-2);const needed=lines.length*4.8+5;if(y+needed>276){doc.addPage();y=22;header()}doc.setFillColor(250,252,254);doc.roundedRect(left,y-4,width,Math.min(needed+1,100),1.5,1.5,"F");y=wrapPdf(doc,t,left+2,y,width-4,4.8)+5}
+ function kv(label,value){const v=String(value||"—");doc.setFont("helvetica","bold");doc.setFontSize(8.5);const ll=doc.splitTextToSize(label+":",width-4);doc.setFont("helvetica","normal");doc.setFontSize(9.2);const vl=doc.splitTextToSize(v,width-7);const h=ll.length*4.2+vl.length*4.7+5;if(y+h>276){doc.addPage();y=22;header()}doc.setFillColor(241,248,251);doc.roundedRect(left,y-4,width,Math.min(h,90),1.5,1.5,"F");doc.setFont("helvetica","bold");doc.setFontSize(8.2);doc.setTextColor(...cyan);doc.text(ll,left+3,y);y+=ll.length*4.1;doc.setFont("helvetica","normal");doc.setFontSize(9.2);doc.setTextColor(38,51,66);doc.text(vl,left+4,y);y+=vl.length*4.7+5}
  function checkPage(){if(y>268){doc.addPage();y=18;header()}}
  function footer(){for(let i=1;i<=doc.getNumberOfPages();i++){doc.setPage(i);doc.setDrawColor(205,221,231);doc.line(left,286,W-right,286);doc.setFont("helvetica","normal");doc.setFontSize(7);doc.setTextColor(100,116,130);doc.text("INFOTELCOM · Brazzaville, République du Congo",left,291);doc.text("Page "+i+" / "+doc.getNumberOfPages(),W-right,291,{align:"right"})}}
  doc.setFillColor(...navy);doc.rect(0,0,W,297,"F");doc.setFillColor(...cyan);doc.roundedRect(24,46,162,2,1,1,"F");doc.setTextColor(255,255,255);doc.setFont("helvetica","bold");doc.setFontSize(23);doc.text("INFOTELCOM",W/2,34,{align:"center"});doc.setFontSize(16);doc.text("PROTOCOLE D’ACCORD",W/2,65,{align:"center"});doc.setFontSize(12);doc.text("DE PARTENARIAT ET DE COLLABORATION",W/2,74,{align:"center"});doc.setFont("helvetica","normal");doc.setFontSize(10);doc.text("Brazzaville · République du Congo",W/2,88,{align:"center"});doc.setFontSize(9);doc.text("Référence : "+val("reference"),W/2,113,{align:"center"});doc.text("Date de préparation : "+fmtDate(val("dateProtocole")),W/2,121,{align:"center"});doc.setDrawColor(65,107,135);doc.line(30,257,180,257);doc.setFontSize(8);doc.setTextColor(188,213,229);doc.text("Document à relire et à signer par les représentants habilités.",W/2,267,{align:"center"});doc.addPage();y=18;header();
@@ -241,11 +241,16 @@ btn.addEventListener("click",async()=>{
  try{
   if(!window.jspdf||!window.JSZip)throw new Error("Les composants de génération n’ont pas pu être chargés. Vérifiez votre connexion puis réessayez.");
   const zip=new JSZip();
-  const protocol=makeProtocol();const presentation=makePresentation();
+  await new Promise(resolve=>requestAnimationFrame(()=>setTimeout(resolve,0)));
+  btn.textContent="Mise en page du protocole…";status.textContent="Préparation du protocole PDF.";
+  const protocol=makeProtocol();
+  await new Promise(resolve=>requestAnimationFrame(()=>setTimeout(resolve,0)));
+  btn.textContent="Préparation de la présentation…";status.textContent="Préparation de la présentation institutionnelle.";
+  const presentation=makePresentation();
   zip.file("01_Protocole_INFOTELCOM_"+(val("reference").replace(/[^a-z0-9_-]/gi,"_")||"partenariat")+".pdf",protocol.output("arraybuffer"));
   zip.file("02_Presentation_institutionnelle_INFOTELCOM.pdf",presentation.output("arraybuffer"));
   zip.file("LISEZ-MOI.txt","INFOTELCOM — Documents préparés depuis le formulaire web\n\n1. Le protocole prérempli doit être relu et signé par les représentants habilités.\n2. Le document de présentation est une version PDF synthétique reprenant le contenu de la présentation institutionnelle fournie.\n3. Le téléchargement ne constitue pas une validation du partenariat par INFOTELCOM.\n4. Les informations et la signature sont traitées localement dans le navigateur. Elles ne sont pas transmises automatiquement à INFOTELCOM. La signature reste sauvegardée dans le navigateur de cet appareil jusqu’à effacement des données du site ou suppression manuelle.\n\nContact : contact.infotelcom@gmail.com\n");
-  const blob=await zip.generateAsync({type:"blob",compression:"DEFLATE",compressionOptions:{level:6}});
+  const blob=await zip.generateAsync({type:"blob",compression:"DEFLATE",compressionOptions:{level:1}});
   const payload={};for(const [k,v] of new FormData(form).entries()){if(payload[k]!==undefined){payload[k]=Array.isArray(payload[k])?payload[k].concat(v):[payload[k],v]}else payload[k]=v}
   const signatureData=sigCanvas.toDataURL("image/png");
   status.textContent="Enregistrement sécurisé du protocole et clôture du lien…";
