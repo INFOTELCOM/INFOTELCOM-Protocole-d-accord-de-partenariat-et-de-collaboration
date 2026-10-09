@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#071629">
+<meta name="description" content="Formulaire officiel INFOTELCOM de préparation du protocole d'accord de partenariat et de collaboration.">
+<title>Protocole de partenariat — INFOTELCOM</title>
+<style>
+:root{--bg:#061426;--panel:#0d2037;--panel2:#102a46;--cyan:#34d7f3;--blue:#2589ff;--text:#f2f7fc;--muted:#9db2c8;--line:#29425d;--ok:#4ade80;--danger:#fb7185}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 80% 0%,#12395b 0,transparent 42%),linear-gradient(145deg,#061426,#081a2e 55%,#071322);color:var(--text);font:15px/1.6 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+a{color:var(--cyan)}.wrap{max-width:1120px;margin:auto;padding:24px}.topbar{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:8px 0 22px;border-bottom:1px solid #ffffff18}.brand{display:flex;align-items:center;gap:12px;font-weight:850;letter-spacing:.12em}.logo{width:46px;height:46px;display:grid;place-items:center;border:1px solid #39d9f477;border-radius:14px;background:linear-gradient(145deg,#173e60,#07182b);color:var(--cyan);font-weight:900;font-size:18px;box-shadow:0 0 25px #27d6f333}.pill{font-size:12px;color:#c9eaf5;border:1px solid #2b6a83;border-radius:999px;padding:6px 11px;background:#0a263b}
+.hero{padding:52px 0 32px;display:grid;grid-template-columns:1.25fr .75fr;gap:30px;align-items:center}.eyebrow{color:var(--cyan);text-transform:uppercase;letter-spacing:.18em;font-size:12px;font-weight:800}.hero h1{font-size:clamp(32px,5vw,56px);line-height:1.08;letter-spacing:-.04em;margin:14px 0}.hero h1 span{color:var(--cyan)}.hero p{color:var(--muted);max-width:700px}.hero-card{border:1px solid #39d7f43a;background:linear-gradient(145deg,#102c49dd,#091a2cdd);border-radius:22px;padding:24px;box-shadow:0 18px 70px #0003}.hero-card strong{display:block;font-size:19px;margin:8px 0}.hero-card li{margin:7px 0;color:#c0d2e2}.steps{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0 0}.step{padding:7px 11px;border:1px solid var(--line);border-radius:9px;color:#b9cbdc;font-size:12px}.step b{color:var(--cyan);margin-right:6px}
+.notice{padding:13px 15px;border:1px solid #347a92;background:#0b293b;border-radius:12px;color:#d2eaf3;font-size:13px;margin:10px 0 22px}.section{border:1px solid #ffffff17;border-radius:18px;background:linear-gradient(145deg,#0d2037f2,#09192bf2);margin:18px 0;overflow:hidden}.section-head{padding:18px 22px;border-bottom:1px solid #ffffff12;display:flex;gap:13px;align-items:center}.num{width:34px;height:34px;display:grid;place-items:center;border-radius:10px;background:#123c58;color:var(--cyan);font-weight:850}.section-head h2{font-size:18px;margin:0}.section-head p{font-size:12px;color:var(--muted);margin:2px 0 0}.section-body{padding:22px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.grid.three{grid-template-columns:repeat(3,minmax(0,1fr))}.field{display:flex;flex-direction:column;gap:6px;min-width:0}.field.full{grid-column:1/-1}label,.legend{font-size:13px;color:#d9e6f1;font-weight:650}.req{color:var(--cyan)}input,select,textarea{width:100%;border:1px solid #2b4560;background:#07182a;color:#f4f8fc;border-radius:10px;padding:12px 13px;font:inherit;outline:none;transition:border .2s,box-shadow .2s}input:focus,select:focus,textarea:focus{border-color:var(--cyan);box-shadow:0 0 0 3px #34d7f31b}input::placeholder,textarea::placeholder{color:#6f879f}textarea{min-height:92px;resize:vertical}input[type=checkbox]{width:18px;height:18px;accent-color:#27cce8;flex-shrink:0;padding:0}.checks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:10px}.check{display:flex;gap:10px;align-items:flex-start;padding:12px;border:1px solid #29425d;border-radius:11px;background:#07182a;color:#d7e5f0;font-size:13px}.check:has(input:checked){border-color:#32cfe9;background:#0b2a3b}.subhead{font-size:14px;font-weight:800;color:var(--cyan);margin:5px 0 14px}.divider{border:0;border-top:1px solid #ffffff14;margin:22px 0}.consent{display:flex;align-items:flex-start;gap:12px;padding:17px;border:1px solid #2c526c;border-radius:13px;background:#092338}.consent label{font-weight:500;line-height:1.5}.actions{position:sticky;bottom:0;z-index:4;margin:24px -24px -24px;padding:16px 24px;background:#061426ed;border-top:1px solid #ffffff20;backdrop-filter:blur(14px);display:flex;gap:12px;align-items:center;justify-content:space-between}.btn{border:0;border-radius:11px;padding:13px 18px;font:inherit;font-weight:800;cursor:pointer;transition:transform .15s,opacity .15s}.btn:hover:not(:disabled){transform:translateY(-1px)}.btn-primary{color:#061426;background:linear-gradient(110deg,var(--cyan),#79f0d1);box-shadow:0 7px 25px #34d7f326}.btn-secondary{color:#dce9f4;background:#142d46;border:1px solid #2b4863}.btn:disabled{opacity:.35;cursor:not-allowed;box-shadow:none}.status{font-size:12px;color:var(--muted);max-width:410px}.status.good{color:var(--ok)}.error{display:none;color:#fecdd3;font-size:13px;margin-top:10px}.error.show{display:block}.footer{padding:32px 0 12px;text-align:center;color:#839bb2;font-size:12px}.footer strong{color:#c4d9e9}.download-info{display:none;margin:18px 0;padding:16px;border-radius:12px;border:1px solid #238b5b;background:#0b2a24;color:#d8ffeb}.download-info.show{display:block}.mini{font-size:12px;color:var(--muted)}.sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:760px){.wrap{padding:16px}.hero{grid-template-columns:1fr;padding:34px 0 20px}.hero-card{display:none}.grid,.grid.three,.checks{grid-template-columns:1fr}.section-body{padding:16px}.section-head{padding:16px}.actions{margin:20px -16px -16px;padding:13px 16px;align-items:stretch;flex-direction:column}.actions .btn{width:100%}.status{max-width:none}.topbar{align-items:flex-start}.pill{display:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="topbar">
+  <div class="brand"><div class="logo">IT</div><span>INFOTELCOM</span></div>
+  <div class="pill">Brazzaville · République du Congo</div>
+</header>
+<main>
+<section class="hero">
+  <div>
+    <div class="eyebrow">Espace officiel de partenariat</div>
+    <h1>Construisons des collaborations <span>solides.</span></h1>
+    <p>Renseignez le protocole d’accord de partenariat et de collaboration d’INFOTELCOM. Vérifiez les informations puis téléchargez, en un seul fichier ZIP, le protocole prérempli et la présentation institutionnelle d’INFOTELCOM.</p>
+    <div class="steps"><span class="step"><b>01</b> Remplir</span><span class="step"><b>02</b> Vérifier</span><span class="step"><b>03</b> Télécharger les deux documents</span></div>
+  </div>
+  <aside class="hero-card"><div class="eyebrow">Téléchargement sécurisé</div><strong>Les documents restent sur votre appareil.</strong><ul><li>Protocole personnalisé au format PDF</li><li>Présentation institutionnelle INFOTELCOM au format PDF</li><li>Un ZIP unique pour les deux documents</li></ul><div class="mini">Aucune donnée du formulaire n’est envoyée à un serveur par cette page.</div></aside>
+</section>
+<div class="notice"><strong>Important :</strong> le téléchargement est activé uniquement lorsque tous les champs obligatoires, les choix de collaboration et la confirmation finale sont renseignés. Les signatures définitives doivent être apposées par les représentants habilités.</div>
+
+<form id="protocolForm" novalidate>
+<section class="section">
+<div class="section-head"><div class="num">01</div><div><h2>Référence du protocole</h2><p>Informations générales et date de préparation</p></div></div>
+<div class="section-body grid">
+<div class="field"><label for="reference">Référence du protocole <span class="req">*</span></label><input id="reference" name="reference" required placeholder="Ex. INF-PART-2026-001"></div>
+<div class="field"><label for="dateProtocole">Date de préparation <span class="req">*</span></label><input id="dateProtocole" name="dateProtocole" type="date" required></div>
+</div></section>
+
+<section class="section">
+<div class="section-head"><div class="num">02</div><div><h2>Informations du partenaire</h2><p>Les coordonnées doivent être exactes et vérifiables</p></div></div>
+<div class="section-body grid">
+<div class="field"><label for="denomination">Dénomination officielle <span class="req">*</span></label><input id="denomination" name="denomination" required placeholder="Nom officiel de la structure"></div>
+<div class="field"><label for="forme">Forme juridique <span class="req">*</span></label><input id="forme" name="forme" required placeholder="Ex. SARL, association, établissement..."></div>
+<div class="field"><label for="immatriculation">Numéro d’immatriculation / identifiant légal <span class="req">*</span></label><input id="immatriculation" name="immatriculation" required placeholder="Indiquer le numéro ou la référence légale"></div>
+<div class="field"><label for="adressePartenaire">Adresse du siège <span class="req">*</span></label><input id="adressePartenaire" name="adressePartenaire" required placeholder="Adresse complète"></div>
+<div class="field"><label for="representant">Représentant habilité : nom et prénom <span class="req">*</span></label><input id="representant" name="representant" required placeholder="Nom du signataire"></div>
+<div class="field"><label for="fonctionRepresentant">Fonction du représentant <span class="req">*</span></label><input id="fonctionRepresentant" name="fonctionRepresentant" required placeholder="Ex. Directeur général"></div>
+<div class="field"><label for="emailPartenaire">Courriel professionnel <span class="req">*</span></label><input id="emailPartenaire" name="emailPartenaire" type="email" required placeholder="nom@entreprise.com"></div>
+<div class="field"><label for="telephonePartenaire">Téléphone professionnel <span class="req">*</span></label><input id="telephonePartenaire" name="telephonePartenaire" type="tel" required placeholder="+242 ..."></div>
+</div></section>
+
+<section class="section">
+<div class="section-head"><div class="num">03</div><div><h2>Article 2 et article 3 — Objet et nature de la collaboration</h2><p>Choisissez au moins une forme et décrivez le projet</p></div></div>
+<div class="section-body">
+<div class="legend">Nature de la collaboration <span class="req">*</span></div>
+<div class="checks">
+<label class="check"><input type="checkbox" name="nature" value="Partenariat de formation"><span><strong>Partenariat de formation</strong><br>Sessions, ateliers ou cursus organisés conjointement.</span></label>
+<label class="check"><input type="checkbox" name="nature" value="Partenariat technique"><span><strong>Partenariat technique</strong><br>Intégration, déploiement ou développement de solutions.</span></label>
+<label class="check"><input type="checkbox" name="nature" value="Partenariat de sensibilisation"><span><strong>Partenariat de sensibilisation</strong><br>Prévention et culture de la cybersécurité.</span></label>
+<label class="check"><input type="checkbox" name="nature" value="Partenariat institutionnel ou éducatif"><span><strong>Partenariat institutionnel ou éducatif</strong><br>Stages, projets pédagogiques et accompagnement.</span></label>
+<label class="check"><input type="checkbox" name="nature" value="Collaboration ponctuelle"><span><strong>Collaboration ponctuelle</strong><br>Mission ou projet précis, de durée limitée.</span></label>
+</div>
+<div class="field" style="margin-top:18px"><label for="objet">Objet et description détaillée : périmètre, besoins, actions et livrables attendus <span class="req">*</span></label><textarea id="objet" name="objet" required minlength="30" placeholder="Décrivez le projet, les objectifs, le public ou les bénéficiaires, les résultats attendus et les livrables."></textarea></div>
+<div id="natureError" class="error">Veuillez sélectionner au moins une forme de collaboration.</div>
+</div></section>
+
+<section class="section">
+<div class="section-head"><div class="num">04</div><div><h2>Article 4, 5 et 6 — Engagements, rôles et apports</h2><p>Définissez les contributions de chaque partie avant le lancement</p></div></div>
+<div class="section-body">
+<div class="subhead">INFOTELCOM</div>
+<div class="grid">
+<div class="field"><label for="roleIT">Rôle d’INFOTELCOM <span class="req">*</span></label><textarea id="roleIT" name="roleIT" required>Apporter son expertise en informatique, réseaux et cybersécurité dans le périmètre convenu.</textarea></div>
+<div class="field"><label for="moyensHumainsIT">Moyens humains d’INFOTELCOM <span class="req">*</span></label><textarea id="moyensHumainsIT" name="moyensHumainsIT" required placeholder="Intervenants, experts, formateurs, équipe projet..."></textarea></div>
+<div class="field"><label for="moyensMaterielsIT">Moyens matériels et logiciels d’INFOTELCOM <span class="req">*</span></label><textarea id="moyensMaterielsIT" name="moyensMaterielsIT" required placeholder="Outils, plateformes, équipements ou préciser les limites convenues."></textarea></div>
+<div class="field"><label for="livrablesIT">Livrables d’INFOTELCOM <span class="req">*</span></label><textarea id="livrablesIT" name="livrablesIT" required placeholder="Livrables attendus et critères d’acceptation."></textarea></div>
+<div class="field full"><label for="referentIT">Interlocuteur référent INFOTELCOM <span class="req">*</span></label><input id="referentIT" name="referentIT" required value="Albert Isaac Mayele — Fondateur et responsable"></div>
+</div>
+<hr class="divider">
+<div class="subhead">Le partenaire</div>
+<div class="grid">
+<div class="field"><label for="rolePartenaire">Rôle du partenaire <span class="req">*</span></label><textarea id="rolePartenaire" name="rolePartenaire" required placeholder="Responsabilités et tâches du partenaire."></textarea></div>
+<div class="field"><label for="moyensHumainsPartenaire">Moyens humains du partenaire <span class="req">*</span></label><textarea id="moyensHumainsPartenaire" name="moyensHumainsPartenaire" required placeholder="Équipe, intervenants, personnes mobilisées..."></textarea></div>
+<div class="field"><label for="moyensMaterielsPartenaire">Moyens matériels et logiciels du partenaire <span class="req">*</span></label><textarea id="moyensMaterielsPartenaire" name="moyensMaterielsPartenaire" required placeholder="Équipements, logiciels, locaux ou autres ressources."></textarea></div>
+<div class="field"><label for="livrablesPartenaire">Livrables du partenaire <span class="req">*</span></label><textarea id="livrablesPartenaire" name="livrablesPartenaire" required placeholder="Livrables attendus et critères d’acceptation."></textarea></div>
+<div class="field full"><label for="referentPartenaire">Interlocuteur référent du partenaire <span class="req">*</span></label><input id="referentPartenaire" name="referentPartenaire" required placeholder="Nom, fonction, courriel ou téléphone"></div>
+</div>
+</div></section>
+
+<section class="section">
+<div class="section-head"><div class="num">05</div><div><h2>Articles 7 à 11 — Confidentialité, propriété, sécurité et finances</h2><p>Les conditions doivent être définies avant toute action commune</p></div></div>
+<div class="section-body grid">
+<div class="field"><label for="confidentialite">Durée de confidentialité après la fin du protocole (ans) <span class="req">*</span></label><input id="confidentialite" name="confidentialite" type="number" min="1" max="50" required value="5"></div>
+<div class="field"><label for="conditionsFinancieres">Conditions financières <span class="req">*</span></label><select id="conditionsFinancieres" name="conditionsFinancieres" required><option value="">Sélectionner…</option><option>Sans contrepartie financière ; chaque partie supporte ses frais</option><option>Conditions financières à définir dans un avenant écrit avant tout engagement</option><option>Autres conditions précisées dans un document séparé signé</option></select></div>
+<div class="field full"><label for="detailsFinanciers">Précisions financières éventuelles</label><textarea id="detailsFinanciers" name="detailsFinanciers" placeholder="Facultatif. Si des frais ou rémunérations sont prévus, indiquer que les détails seront formalisés par écrit."></textarea></div>
+<div class="field full"><label for="propriete">Précisions particulières sur la propriété intellectuelle et l’usage des marques</label><textarea id="propriete" name="propriete" placeholder="Facultatif. Par défaut, chaque partie reste propriétaire de ses marques, contenus, outils et logiciels."></textarea></div>
+<div class="field full"><label for="communication">Modalités de validation des communications publiques <span class="req">*</span></label><textarea id="communication" name="communication" required>Toute communication publique relative à la collaboration est validée par écrit par les deux parties avant publication.</textarea></div>
+</div></section>
+
+<section class="section">
+<div class="section-head"><div class="num">06</div><div><h2>Articles 12 à 16 — Durée, résiliation et règlement des différends</h2><p>Complétez les paramètres applicables à cet accord</p></div></div>
+<div class="section-body grid three">
+<div class="field"><label for="duree">Durée du protocole (mois) <span class="req">*</span></label><input id="duree" name="duree" type="number" min="1" max="120" required value="12"></div>
+<div class="field"><label for="preavis">Préavis de résiliation (jours) <span class="req">*</span></label><input id="preavis" name="preavis" type="number" min="1" max="365" required value="30"></div>
+<div class="field"><label for="delaiAmiable">Délai de règlement amiable (jours) <span class="req">*</span></label><input id="delaiAmiable" name="delaiAmiable" type="number" min="1" max="180" required value="30"></div>
+<div class="field"><label for="lieuSignature">Lieu de signature <span class="req">*</span></label><input id="lieuSignature" name="lieuSignature" required value="Brazzaville, République du Congo"></div>
+<div class="field"><label for="dateSignature">Date prévue de signature <span class="req">*</span></label><input id="dateSignature" name="dateSignature" type="date" required></div>
+<div class="field"><label for="nomIT">Nom du signataire INFOTELCOM <span class="req">*</span></label><input id="nomIT" name="nomIT" required value="Noël Mayele"></div>
+<div class="field"><label for="fonctionIT">Fonction du signataire INFOTELCOM <span class="req">*</span></label><input id="fonctionIT" name="fonctionIT" required value="Fondateur et responsable"></div>
+<div class="field"><label for="dateSignPartenaire">Date de signature du partenaire</label><input id="dateSignPartenaire" name="dateSignPartenaire" type="date"></div>
+<div class="field"><label for="observations">Observations complémentaires</label><input id="observations" name="observations" placeholder="Facultatif"></div>
+</div></section>
+
+<section class="section">
+<div class="section-head"><div class="num">07</div><div><h2>Vérification finale</h2><p>Cette confirmation est nécessaire pour activer le téléchargement</p></div></div>
+<div class="section-body">
+<div class="consent"><input type="checkbox" id="confirmation" required><label for="confirmation">Je confirme que les informations fournies sont exactes et complètes, que je suis autorisé(e) à préparer cette demande au nom de la structure indiquée, et que les deux documents seront relus par les représentants habilités avant signature. Je comprends que le téléchargement ne vaut ni validation par INFOTELCOM ni signature du protocole. <span class="req">*</span></label></div>
+<div id="formError" class="error">Certains champs obligatoires sont incomplets. Vérifiez les sections signalées avant de télécharger.</div>
+<div id="downloadInfo" class="download-info"><strong>Formulaire complet.</strong> Vous pouvez maintenant télécharger le ZIP contenant le protocole prérempli et la présentation institutionnelle d’INFOTELCOM.</div>
+<div class="actions">
+<div id="status" class="status">Complétez les champs obligatoires et cochez la confirmation pour activer le téléchargement.</div>
+<button type="button" id="downloadBtn" class="btn btn-primary" disabled>↓ Télécharger les deux documents (.ZIP)</button>
+</div>
+</div></section>
+</form>
+</main>
+<footer class="footer"><strong>INFOTELCOM</strong> · Brazzaville, République du Congo<br>contact.infotelcom@gmail.com · +242 06 849 87 92 / +242 06 866 08 21<br><span>Les documents sont générés localement dans votre navigateur. Le protocole doit être signé par les représentants habilités.</span></footer>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+<script>
+(function(){
+"use strict";
+const form=document.getElementById("protocolForm"),btn=document.getElementById("downloadBtn"),status=document.getElementById("status"),formError=document.getElementById("formError"),natureError=document.getElementById("natureError"),downloadInfo=document.getElementById("downloadInfo");
+const $=id=>document.getElementById(id);
+const val=id=>($(id)?.value||"").trim();
+const today=new Date();const localDate=new Date(today.getTime()-today.getTimezoneOffset()*60000).toISOString().slice(0,10);
+$("dateProtocole").value=localDate;$("dateSignature").value=localDate;
+function selectedNature(){return [...form.querySelectorAll('input[name="nature"]:checked')].map(x=>x.value)}
+function valid(){
+ const basic=form.checkValidity();
+ const nature=selectedNature().length>0;
+ natureError.classList.toggle("show",!nature && (form.dataset.touched==="1"));
+ const ok=basic&&nature;
+ btn.disabled=!ok;
+ status.classList.toggle("good",ok);
+ status.textContent=ok?"Formulaire complet : les deux documents sont prêts à être générés.":"Complétez les champs obligatoires et cochez la confirmation pour activer le téléchargement.";
+ downloadInfo.classList.toggle("show",ok);
+ return ok;
+}
+form.addEventListener("input",()=>{form.dataset.touched="1";formError.classList.remove("show");valid()});
+form.addEventListener("change",()=>{form.dataset.touched="1";formError.classList.remove("show");valid()});
+function esc(s){return String(s??"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")}
+function fmtDate(s){if(!s)return "À compléter";const p=s.split("-");return p.length===3?p[2]+"/"+p[1]+"/"+p[0]:s}
+function wrapPdf(doc,text,x,y,width,lineH=5.2){const lines=doc.splitTextToSize(String(text||"—"),width);if(y+lines.length*lineH>278){doc.addPage();y=18}doc.text(lines,x,y);return y+lines.length*lineH}
+function makeProtocol(){
+ const {jsPDF}=window.jspdf;const doc=new jsPDF({unit:"mm",format:"a4"});
+ const W=210, left=17,right=17,width=W-left-right;let y=18;
+ const navy=[5,39,67],cyan=[0,145,190],grey=[72,88,105];
+ function header(){doc.setFillColor(...navy);doc.rect(0,0,W,11,"F");doc.setFont("helvetica","bold");doc.setFontSize(8);doc.setTextColor(255,255,255);doc.text("INFOTELCOM  ·  PROTOCOLE D’ACCORD",left,7.2);doc.setTextColor(...grey);doc.setFontSize(8);doc.text("Réf. "+val("reference"),W-right,17,{align:"right"})}
+ function title(t){if(y>263){doc.addPage();y=18;header()}doc.setFillColor(229,246,251);doc.roundedRect(left,y-5,width,9,1.5,1.5,"F");doc.setTextColor(...navy);doc.setFont("helvetica","bold");doc.setFontSize(10);doc.text(t,left+2,y+0.7);y+=9}
+ function para(t){doc.setFont("helvetica","normal");doc.setFontSize(8.6);doc.setTextColor(38,51,66);y=wrapPdf(doc,t,left,y,width,4.5)+2}
+ function kv(label,value){doc.setFont("helvetica","bold");doc.setFontSize(8.5);doc.setTextColor(...navy);y=wrapPdf(doc,label+": ",left,y,width,4.5);doc.setFont("helvetica","normal");doc.setTextColor(38,51,66);y=wrapPdf(doc,value||"—",left+3,y,width-3,4.5)+1}
+ function checkPage(){if(y>268){doc.addPage();y=18;header()}}
+ function footer(){for(let i=1;i<=doc.getNumberOfPages();i++){doc.setPage(i);doc.setDrawColor(205,221,231);doc.line(left,286,W-right,286);doc.setFont("helvetica","normal");doc.setFontSize(7);doc.setTextColor(100,116,130);doc.text("INFOTELCOM · Brazzaville, République du Congo",left,291);doc.text("Page "+i+" / "+doc.getNumberOfPages(),W-right,291,{align:"right"})}}
+ doc.setFillColor(...navy);doc.rect(0,0,W,297,"F");doc.setFillColor(...cyan);doc.roundedRect(24,46,162,2,1,1,"F");doc.setTextColor(255,255,255);doc.setFont("helvetica","bold");doc.setFontSize(23);doc.text("INFOTELCOM",W/2,34,{align:"center"});doc.setFontSize(16);doc.text("PROTOCOLE D’ACCORD",W/2,65,{align:"center"});doc.setFontSize(12);doc.text("DE PARTENARIAT ET DE COLLABORATION",W/2,74,{align:"center"});doc.setFont("helvetica","normal");doc.setFontSize(10);doc.text("Brazzaville · République du Congo",W/2,88,{align:"center"});doc.setFontSize(9);doc.text("Référence : "+val("reference"),W/2,113,{align:"center"});doc.text("Date de préparation : "+fmtDate(val("dateProtocole")),W/2,121,{align:"center"});doc.setDrawColor(65,107,135);doc.line(30,257,180,257);doc.setFontSize(8);doc.setTextColor(188,213,229);doc.text("Document à relire et à signer par les représentants habilités.",W/2,267,{align:"center"});doc.addPage();y=18;header();
+ title("Article 1 — Parties");
+ para("INFOTELCOM, structure numérique basée à Brazzaville, République du Congo, créée par ses quatre fondateurs (Christ Mawana, Juvel Merveil Ngaliko, Albert Isaac Mayele et Alpha Divine Kihouassamo), rejoints ensuite par Alfred Mpio et Alidou Monira, responsables de pôle, représentée par "+val("nomIT")+", "+val("fonctionIT")+", ci-après « INFOTELCOM ».");
+ para("Courriel : contact.infotelcom@gmail.com · Téléphone : +242 06 866 08 21 / +242 06 849 87 92 · WhatsApp international : +33 6 52 86 11 59 · Adresse : 17 rue Lingue (Nkombo), Brazzaville, République du Congo.");
+ para("ET — Le Partenaire :");
+ kv("Dénomination",val("denomination"));kv("Forme juridique",val("forme"));kv("Numéro d’immatriculation",val("immatriculation"));kv("Adresse",val("adressePartenaire"));kv("Représenté par",val("representant")+" — "+val("fonctionRepresentant"));kv("Courriel / téléphone",val("emailPartenaire")+" / "+val("telephonePartenaire"));
+ title("Article 2 — Objet");para("Le présent protocole définit le cadre de la collaboration entre INFOTELCOM et le Partenaire, ainsi que les droits et obligations de chacun. Il ne crée aucune société, association ni lien de subordination entre les parties.");
+ title("Article 3 — Nature de la collaboration");kv("Formes retenues",selectedNature().join(" ; "));kv("Description, périmètre et livrables",val("objet"));
+ title("Article 4 — Engagements d’INFOTELCOM");para("INFOTELCOM s’engage à mettre à disposition son expertise en informatique, réseaux et cybersécurité dans le périmètre défini, fournir les contenus pédagogiques et outils numériques convenus, désigner un interlocuteur identifié et assurer un suivi régulier, et protéger la confidentialité des échanges et des données du Partenaire.");
+ title("Article 5 — Engagements du Partenaire");para("Le Partenaire s’engage à justifier son existence légale, son statut et ses coordonnées ; être représenté par une personne habilitée ; fournir des informations exactes ; exercer des activités licites et éthiques ; protéger les informations confidentielles pendant et après la collaboration ; ne démarrer aucune action commune sans accord écrit des deux parties ; respecter les rôles, apports, durée et conditions convenus ; n’utiliser le nom, le logo, les contenus et les marques d’INFOTELCOM qu’avec autorisation écrite préalable ; appliquer les bonnes pratiques de sécurité et soumettre toute annonce publique à la validation des deux parties.");
+ title("Article 6 — Rôles et apports de chaque partie");
+ kv("Rôle d’INFOTELCOM",val("roleIT"));kv("Moyens humains — INFOTELCOM",val("moyensHumainsIT"));kv("Moyens matériels et logiciels — INFOTELCOM",val("moyensMaterielsIT"));kv("Livrables — INFOTELCOM",val("livrablesIT"));kv("Interlocuteur référent — INFOTELCOM",val("referentIT"));
+ kv("Rôle du Partenaire",val("rolePartenaire"));kv("Moyens humains — Partenaire",val("moyensHumainsPartenaire"));kv("Moyens matériels et logiciels — Partenaire",val("moyensMaterielsPartenaire"));kv("Livrables — Partenaire",val("livrablesPartenaire"));kv("Interlocuteur référent — Partenaire",val("referentPartenaire"));
+ title("Article 7 — Confidentialité");para("Chaque partie s’interdit de divulguer à un tiers les informations non publiques reçues de l’autre partie et de les utiliser à d’autres fins que celles prévues par le protocole. Cette obligation reste en vigueur après la fin du protocole pendant "+val("confidentialite")+" ans.");
+ title("Article 8 — Propriété intellectuelle et usage des marques");para("Chaque partie reste propriétaire de ses marques, logos, contenus, outils et logiciels. Aucun droit d’utilisation n’est cédé sans accord écrit précisant l’étendue, la durée et les conditions de cet usage. Les créations conjointes font l’objet d’un accord écrit séparé sur leur titularité.");if(val("propriete"))para("Précisions complémentaires : "+val("propriete"));
+ title("Article 9 — Données et sécurité");para("Les données personnelles ou sensibles éventuellement échangées sont traitées uniquement pour les besoins de la collaboration, avec des mesures de sécurité adaptées. Toute violation ou suspicion de violation de sécurité est signalée à l’autre partie sans délai.");
+ title("Article 10 — Conditions financières");para(val("conditionsFinancieres")+".");if(val("detailsFinanciers"))para("Précisions : "+val("detailsFinanciers"));para("Toute contrepartie financière (prix, facturation, commission ou partage de revenus) fait l’objet d’un avenant ou d’un contrat distinct, signé par les deux parties avant tout engagement de dépense.");
+ title("Article 11 — Communication");para(val("communication"));
+ title("Article 12 — Durée");para("Le présent protocole prend effet à la date de dernière signature pour une durée de "+val("duree")+" mois, renouvelable par accord écrit des deux parties.");
+ title("Article 13 — Suspension et résiliation");para("INFOTELCOM peut suspendre ou mettre fin à la collaboration après notification écrite, notamment en cas de fausses informations ou documents non authentiques, de non-respect des engagements écrits, d’utilisation non autorisée de son nom, logo ou contenus, de violation de la confidentialité ou atteinte à la sécurité des données, d’activité illicite ou contraire à l’éthique, ou d’absence prolongée de communication. Chaque partie peut également mettre fin au protocole moyennant un préavis écrit de "+val("preavis")+" jours. Les obligations de confidentialité et de propriété intellectuelle survivent à la fin du protocole.");
+ title("Article 14 — Responsabilité");para("Chaque partie est responsable des actions menées sous sa direction et des dommages qu’elle cause à l’autre partie ou à des tiers dans le cadre de la collaboration.");
+ title("Article 15 — Droit applicable et règlement des différends");para("Le présent protocole est soumis au droit de la République du Congo. Les parties s’efforcent de régler à l’amiable tout différend dans un délai de "+val("delaiAmiable")+" jours. À défaut d’accord, le litige est porté devant les juridictions compétentes de Brazzaville.");
+ title("Article 16 — Dispositions finales");para("Le présent protocole constitue l’intégralité de l’accord entre les parties sur son objet. Toute modification fait l’objet d’un avenant écrit et signé par les deux parties. Il est établi en deux exemplaires originaux, un pour chaque partie.");
+ title("Signatures");kv("Fait à",val("lieuSignature"));kv("Date prévue",fmtDate(val("dateSignature")));checkPage();y+=8;doc.setDrawColor(140,160,178);doc.roundedRect(left,y,width/2-4,46,2,2);doc.roundedRect(left+width/2+4,y,width/2-4,46,2,2);doc.setFont("helvetica","bold");doc.setFontSize(9);doc.setTextColor(...navy);doc.text("Pour INFOTELCOM",left+4,y+7);doc.text("Pour le Partenaire",left+width/2+8,y+7);doc.setFont("helvetica","normal");doc.setFontSize(8);doc.text("Nom : "+val("nomIT"),left+4,y+14);doc.text("Fonction : "+val("fonctionIT"),left+4,y+20);doc.text("Date : "+fmtDate(val("dateSignature")),left+4,y+26);doc.text("Signature et cachet :",left+4,y+34);doc.text("Nom : "+val("representant"),left+width/2+8,y+14);doc.text("Fonction : "+val("fonctionRepresentant"),left+width/2+8,y+20);doc.text("Date : "+fmtDate(val("dateSignPartenaire")||val("dateSignature")),left+width/2+8,y+26);doc.text("Signature et cachet :",left+width/2+8,y+34);
+ footer();return doc;
+}
+function makePresentation(){
+ const {jsPDF}=window.jspdf;const doc=new jsPDF({unit:"mm",format:"a4",orientation:"landscape"});
+ const W=297,H=210,navy=[5,28,49],cyan=[31,208,238],white=[245,249,253],muted=[174,199,218];
+ const slides=[
+ ["PRÉSENTATION INSTITUTIONNELLE","Qui nous sommes, ce que nous proposons et les conditions de nos partenariats et collaborations","Brazzaville · République du Congo"],
+ ["Qui est INFOTELCOM","Startup technologique de Brazzaville","INFOTELCOM conçoit ses propres produits, sécurise les systèmes d’information, déploie des infrastructures et forme les talents IT. Mission : renforcer les compétences, faciliter l’usage des outils numériques et promouvoir des pratiques plus sûres.","Valeurs : intégrité et transparence · excellence technique · sécurité et confidentialité · partage des connaissances · respect des engagements."],
+ ["Notre équipe","Quatre fondateurs, rejoints ensuite par deux responsables de pôle","Christ Mawana — Administrateur réseau et support technique","Juvel Merveil Ngaliko — Développeur et analyste bases de données","Albert Isaac Mayele — Expert cybersécurité, fullstack et SaaS, IA, gouvernance SI","Alpha Divine Kihouassamo — Transformation digitale et design","Alfred Mpio — Expert comptable et community manager","Alidou Monira — Relations avec les entreprises et relations extérieures"],
+ ["Nos domaines d’intervention","Six domaines complémentaires","Développement : applications sur mesure, web et mobile, APIs.","Cybersécurité : audit, sensibilisation, détection et sécurité des PME.","Réseaux et télécoms : systèmes, VLAN, routage, Wi-Fi, vidéosurveillance et support.","Cloud et déploiement : mise en ligne, conteneurs, intégration continue.","Data et IA : analyse de données, modèles et tableaux de bord.","Formation Academy : ateliers et cursus IT, y compris en ligne."],
+ ["Nos produits et solutions","Une équipe qui conçoit et sécurise ses propres solutions","Teka Tech Congo — Infrastructure numérique : web, mobile, réseaux, cloud et support IT.","FAXTRIX — Gestion d’activités d’entreprise : CRM, tickets et interventions terrain.","Sentinel — Sécurité défensive : collecter, analyser, détecter, répondre et apprendre.","FHR-AI — IA de classification du rythme cardiaque fœtal.","LiveSave Congo — Solution numérique conçue par INFOTELCOM."],
+ ["Ce que nous proposons","Formation, accompagnement, prévention et services","Ateliers, formations et séances de sensibilisation.","Accompagnement technique ou pédagogique.","Actions de prévention des risques numériques.","Appui à la communication de projets numériques.","Services informatiques, réseaux et développement web.","Projets pilotes co-construits, avec objectifs, périmètre, responsabilités et bilan définis dès le départ."],
+ ["Notre approche","Quatre étapes, trois engagements permanents","1. Écoute — Comprendre les besoins et les objectifs concrets.","2. Cadrage — Définir le périmètre, les rôles et la préparation.","3. Mise en œuvre — Réaliser les ateliers, l’accompagnement et les actions convenues.","4. Bilan — Mesurer les résultats, les difficultés et décider d’étendre ou d’ajuster.","Engagements : confidentialité · sécurité · transparence."],
+ ["Partenariats et collaborations","Des collaborations choisies, fondées sur la confiance et l’utilité réciproque","Partenariat de formation : sessions, ateliers ou cursus organisés conjointement.","Partenariat technique : intégration, déploiement ou développement conjoint.","Partenariat de sensibilisation : prévention et culture cybersécurité.","Partenariat institutionnel ou éducatif : stages, projets pédagogiques, accompagnement des jeunes talents.","Collaboration ponctuelle : mission ou projet précis, de durée limitée."],
+ ["Ce qu’INFOTELCOM apporte","La qualité des relations avant leur nombre","Expertise : compétences en informatique, réseaux et cybersécurité.","Contenus et outils : contenus pédagogiques et outils numériques convenus.","Interlocuteur dédié : un contact identifié et un suivi régulier.","Confidentialité : protection des échanges et des données."],
+ ["Conditions obligatoires de partenariat","Les dix conditions sont cumulatives","1. Identité vérifiable et existence légale.","2. Représentant habilité à engager la structure.","3. Informations exactes et transparentes.","4. Activités licites et respect des valeurs d’INFOTELCOM.","5. Confidentialité pendant et après la collaboration.","6. Accord écrit signé avant toute collaboration effective.","7. Rôles, apports, durée et conditions définis à l’avance.","8. Autorisation écrite préalable pour le nom et le logo.","9. Bonnes pratiques de sécurité et de protection des données.","10. Communication publique validée par les deux parties."],
+ ["Procédure pour devenir partenaire","Six étapes, de la demande au suivi","1. Demande : présentation de la structure et du projet.","2. Vérification : identité, légitimité et réputation.","3. Discussion : objectifs, rôles, durée et conditions.","4. Validation interne par la direction d’INFOTELCOM.","5. Signature du protocole par les représentants habilités.","6. Suivi régulier et évaluation de la collaboration.","Aucune collaboration n’est effective avant la signature d’un accord écrit par les deux parties."],
+ ["Refus, suspension ou rupture","INFOTELCOM peut refuser ou mettre fin à une collaboration en cas de","Fausses informations ou documents non authentiques.","Engagements écrits non respectés.","Usage non autorisé du nom, du logo ou des contenus.","Violation de la confidentialité ou atteinte aux données.","Activité illicite, contraire à l’éthique ou nuisible à la réputation.","Absence de communication ou de réponse prolongée."],
+ ["Nous contacter","Construisons ensemble des collaborations de confiance","Courriel : contact.infotelcom@gmail.com","Téléphone Congo : +242 06 849 87 92 · +242 06 866 08 21","WhatsApp international : +33 06 52 86 11 59","Adresse : 17 rue Lingue (Nkombo), Brazzaville, République du Congo","Site : infotelcom-congo-brazzaville.netlify.app","GitHub : github.com/INFOTELCOM"]
+ ];
+ slides.forEach((s,i)=>{
+  doc.setFillColor(...navy);doc.rect(0,0,W,H,"F");doc.setFillColor(11,50,77);doc.rect(0,0,7,H,"F");doc.setFillColor(...cyan);doc.rect(7,0,1.2,H,"F");
+  doc.setFont("helvetica","bold");doc.setFontSize(8);doc.setTextColor(...cyan);doc.text("INFOTELCOM  /  PRÉSENTATION INSTITUTIONNELLE",18,15);
+  if(i===0){doc.setTextColor(...white);doc.setFontSize(30);doc.text("INFOTELCOM",W/2,65,{align:"center"});doc.setFontSize(20);doc.text("PRÉSENTATION INSTITUTIONNELLE",W/2,86,{align:"center"});doc.setFontSize(12);doc.setTextColor(...cyan);doc.text("Partenariats · Collaboration · Innovation numérique",W/2,101,{align:"center"});doc.setFontSize(10);doc.setTextColor(...muted);doc.text(s[2],W/2,126,{align:"center"})}
+  else {doc.setTextColor(...white);doc.setFontSize(22);const titleLines=doc.splitTextToSize(s[0],W-38);doc.text(titleLines,18,34);doc.setFont("helvetica","normal");doc.setFontSize(12);doc.setTextColor(...cyan);doc.text(doc.splitTextToSize(s[1]||"",W-38),18,47);let y=63;doc.setFontSize(s.length>8?9.4:11);doc.setTextColor(...white);s.slice(2).forEach((line,j)=>{const lines=doc.splitTextToSize("•  "+line,W-42);if(y+lines.length*6>188){return}doc.text(lines,20,y);y+=lines.length*(s.length>8?4.8:6)+4});}
+  doc.setDrawColor(39,85,112);doc.line(18,H-12,W-18,H-12);doc.setFont("helvetica","normal");doc.setFontSize(8);doc.setTextColor(...muted);doc.text("Brazzaville · République du Congo",18,H-6);doc.text(String(i+1).padStart(2,"0")+" / "+String(slides.length).padStart(2,"0"),W-18,H-6,{align:"right"});
+ });
+ return doc;
+}
+btn.addEventListener("click",async()=>{
+ form.dataset.touched="1";
+ if(!valid()){formError.classList.add("show");form.reportValidity();window.scrollTo({top:formError.getBoundingClientRect().top+window.scrollY-100,behavior:"smooth"});return}
+ const old=btn.textContent;btn.disabled=true;btn.textContent="Préparation des documents…";status.textContent="Génération du protocole et de la présentation en cours.";
+ try{
+  if(!window.jspdf||!window.JSZip)throw new Error("Les composants de génération n’ont pas pu être chargés. Vérifiez votre connexion puis réessayez.");
+  const zip=new JSZip();
+  const protocol=makeProtocol();const presentation=makePresentation();
+  zip.file("01_Protocole_INFOTELCOM_"+(val("reference").replace(/[^a-z0-9_-]/gi,"_")||"partenariat")+".pdf",protocol.output("arraybuffer"));
+  zip.file("02_Presentation_institutionnelle_INFOTELCOM.pdf",presentation.output("arraybuffer"));
+  zip.file("LISEZ-MOI.txt","INFOTELCOM — Documents préparés depuis le formulaire web\n\n1. Le protocole prérempli doit être relu et signé par les représentants habilités.\n2. Le document de présentation est une version PDF synthétique reprenant le contenu de la présentation institutionnelle fournie.\n3. Le téléchargement ne constitue pas une validation du partenariat par INFOTELCOM.\n4. Les informations saisies sont traitées localement dans le navigateur par cette page et ne sont pas transmises par un formulaire à INFOTELCOM.\n\nContact : contact.infotelcom@gmail.com\n");
+  const blob=await zip.generateAsync({type:"blob",compression:"DEFLATE",compressionOptions:{level:6}});
+  const url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download="INFOTELCOM_Protocole_et_Presentation.zip";document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),30000);
+  status.textContent="Téléchargement lancé : le ZIP contient les deux PDF.";status.classList.add("good");btn.textContent="Téléchargement lancé ✓";
+ }catch(e){console.error(e);status.textContent="Impossible de générer les documents : "+(e.message||"erreur inconnue")+". Rechargez la page et réessayez.";btn.textContent=old;btn.disabled=false}
+});
+valid();
+})();
+</script>
+</body>
+</html>
