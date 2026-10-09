@@ -31,6 +31,7 @@ a{color:var(--cyan)}.wrap{max-width:1120px;margin:auto;padding:24px}.topbar{disp
   </div>
   <aside class="hero-card"><div class="eyebrow">Téléchargement sécurisé</div><strong>Les documents restent sur votre appareil.</strong><ul><li>Protocole personnalisé au format PDF</li><li>Présentation institutionnelle INFOTELCOM au format PDF</li><li>Un ZIP unique pour les deux documents</li></ul><div class="mini">Aucune donnée du formulaire n’est envoyée à un serveur par cette page.</div></aside>
 </section>
+<div id="inviteNotice" class="notice"><strong>Accès sécurisé :</strong> ce formulaire doit être ouvert avec le lien personnel envoyé par INFOTELCOM. Sans lien valide, le téléchargement est bloqué.</div>
 <div class="notice"><strong>Important :</strong> le téléchargement est activé uniquement lorsque tous les champs obligatoires, les choix de collaboration et la confirmation finale sont renseignés. Les signatures définitives doivent être apposées par les représentants habilités.</div>
 
 <form id="protocolForm" novalidate>
@@ -137,6 +138,8 @@ a{color:var(--cyan)}.wrap{max-width:1120px;margin:auto;padding:24px}.topbar{disp
 (function(){
 "use strict";
 const form=document.getElementById("protocolForm"),btn=document.getElementById("downloadBtn"),status=document.getElementById("status"),formError=document.getElementById("formError"),natureError=document.getElementById("natureError"),downloadInfo=document.getElementById("downloadInfo");
+const inviteToken=new URLSearchParams(location.search).get("invite")||"";let inviteValid=false;const API_URL="https://xtkcfhbsksoqbpnaciga.supabase.co/functions/v1/infotelcom-partnership-links";const API_KEY="sb_publishable_2vYqhy3ymqrMGa2W2r0Kpg_SYRqHoMv";
+async function inviteRequest(body,token=inviteToken){const r=await fetch(API_URL,{method:"POST",headers:{"Content-Type":"application/json","apikey":API_KEY},body:JSON.stringify({...body,token})});const data=await r.json().catch(()=>({}));if(!r.ok)throw new Error(data.error||"Lien invalide ou expiré.");return data;}
 const $=id=>document.getElementById(id);
 const val=id=>($(id)?.value||"").trim();
 const today=new Date();const localDate=new Date(today.getTime()-today.getTimezoneOffset()*60000).toISOString().slice(0,10);
@@ -156,10 +159,10 @@ function valid(){
  const basic=form.checkValidity();
  const nature=selectedNature().length>0;
  natureError.classList.toggle("show",!nature && (form.dataset.touched==="1"));
- const ok=basic&&nature&&hasSignature;
+ const ok=basic&&nature&&hasSignature&&inviteValid;
  btn.disabled=!ok;
  status.classList.toggle("good",ok);
- status.textContent=ok?"Formulaire et signature complétés : les deux documents sont prêts à être générés.":"Complétez les champs obligatoires et cochez la confirmation pour activer le téléchargement.";
+ status.textContent=ok?"Formulaire et signature complétés : les deux documents sont prêts à être générés.":inviteValid?"Complétez les champs obligatoires, signez et cochez la confirmation pour activer le téléchargement.":"Accès bloqué : ouvrez le lien personnel fourni par INFOTELCOM.";
  downloadInfo.classList.toggle("show",ok);
  return ok;
 }
@@ -243,11 +246,17 @@ btn.addEventListener("click",async()=>{
   zip.file("02_Presentation_institutionnelle_INFOTELCOM.pdf",presentation.output("arraybuffer"));
   zip.file("LISEZ-MOI.txt","INFOTELCOM — Documents préparés depuis le formulaire web\n\n1. Le protocole prérempli doit être relu et signé par les représentants habilités.\n2. Le document de présentation est une version PDF synthétique reprenant le contenu de la présentation institutionnelle fournie.\n3. Le téléchargement ne constitue pas une validation du partenariat par INFOTELCOM.\n4. Les informations et la signature sont traitées localement dans le navigateur. Elles ne sont pas transmises automatiquement à INFOTELCOM. La signature reste sauvegardée dans le navigateur de cet appareil jusqu’à effacement des données du site ou suppression manuelle.\n\nContact : contact.infotelcom@gmail.com\n");
   const blob=await zip.generateAsync({type:"blob",compression:"DEFLATE",compressionOptions:{level:6}});
+  const payload={};for(const [k,v] of new FormData(form).entries()){if(payload[k]!==undefined){payload[k]=Array.isArray(payload[k])?payload[k].concat(v):[payload[k],v]}else payload[k]=v}
+  const signatureData=sigCanvas.toDataURL("image/png");
+  status.textContent="Enregistrement sécurisé du protocole et clôture du lien…";
+  await inviteRequest({action:"complete",partner_data:payload,signature:signatureData});
+  inviteValid=false;btn.disabled=true;form.querySelectorAll("input,select,textarea,button").forEach(el=>{if(el.id!=="downloadBtn"&&el.id!=="clearSignature")el.disabled=true});
   const url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download="INFOTELCOM_Protocole_et_Presentation.zip";document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),30000);
-  status.textContent="Téléchargement lancé : le ZIP contient les deux PDF.";status.classList.add("good");btn.textContent="Téléchargement lancé ✓";
- }catch(e){console.error(e);status.textContent="Impossible de générer les documents : "+(e.message||"erreur inconnue")+". Rechargez la page et réessayez.";btn.textContent=old;btn.disabled=false}
+  status.textContent="Protocole enregistré. Le lien a été clôturé et ne peut plus être réutilisé.";status.classList.add("good");btn.textContent="Lien clôturé ✓";
+ }catch(e){console.error(e);status.textContent="Impossible de finaliser : "+(e.message||"erreur inconnue")+". Si le lien a déjà été consommé, contactez INFOTELCOM pour en obtenir un nouveau.";btn.textContent=old;btn.disabled=!inviteValid}
 });
 valid();
+(async()=>{btn.disabled=true;form.querySelectorAll("input,select,textarea").forEach(el=>el.disabled=true);try{if(!inviteToken)throw new Error("Aucun lien personnel détecté. Demandez un lien à INFOTELCOM.");const result=await inviteRequest({action:"validate"});inviteValid=!!result.valid;if(!inviteValid)throw new Error("Lien invalide.");$("inviteNotice").innerHTML="<strong>Lien personnel validé.</strong> Il expire à "+new Date(result.expires_at).toLocaleString("fr-FR")+". Remplissez le formulaire puis téléchargez les documents une seule fois.";form.querySelectorAll("input,select,textarea").forEach(el=>el.disabled=false);valid()}catch(e){inviteValid=false;$("inviteNotice").innerHTML="<strong>Accès refusé.</strong> "+esc(e.message||"Lien invalide ou expiré")+" Contactez INFOTELCOM pour demander un nouveau lien.";btn.disabled=true;status.textContent="Formulaire verrouillé : aucun lien valide.";form.querySelectorAll("input,select,textarea").forEach(el=>el.disabled=true);$("clearSignature").disabled=true}})();
 })();
 </script>
 </body>
